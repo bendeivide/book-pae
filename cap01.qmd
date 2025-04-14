@@ -1,16 +1,12 @@
-# Estatística e Geotecnia {#sec-chap01}
+# Introdução ao Planejamento de Experimentos
 
-## Introdução à Geotecnia e Estatística {id="intgeoest" title="Clique aqui!"}
+## Importância do planejamento experimental  
 
-## Origens da Geotecnia no Mundo e no Brasil {id="origem" title="Clique aqui!"}
+## Definição de experimento e variáveis envolvidas  
 
-## A Estatística na Geotecnia {id="estgeo" title="Clique aqui!"}
+## Princípios fundamentais: aleatorização, repetição e controle  
 
-## Primeiras pesquisas em Geotecnia usando estatística {id="primgeoest" title="Clique aqui!"}
-
-## Gargalos da Estatística na Geotecnia {id="gestgeo" title="Clique aqui!"}
-
-## Importância da Estatística para o Futuro da Geotecnia {id="impestgeo" title="Clique aqui!"}
+## Tipos de erros experimentais  
 
 
 
