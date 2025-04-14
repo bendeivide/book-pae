@@ -1,0 +1,230 @@
+# Delineamento Inteiramente Casualizado {#sec-chap02}
+
+## Exemplos simulados
+
+::: {#exm-}
+
+## Aplicação em Engenharia Química
+
+> Otimização da resistência de um polímero
+
+Uma indústria química está desenvolvendo um novo tipo de polímero para aplicação em embalagens de alimentos. O objetivo do estudo é avaliar o efeito de diferentes concentrações de um aditivo plastificante na resistência mecânica do polímero.
+
+As características do experimento são:
+
+- **Fatores:** Concentração do aditivo plastificante (níveis fixos)  
+- **Níveis:** 4 níveis de concentração (0%, 1%, 2%, e 3%)  
+- **Unidades experimentais:** Amostras de polímero moldadas para teste  
+- **Resposta:** Resistência à tração (MPa) medida em uma máquina de ensaio  
+- **Delineamento:** Inteiramente casualizado  
+
+A empresa decide produzir **5 amostras para cada nível de concentração**, totalizando **20 amostras**. Como se trata de um DIC, as amostras são alocadas aleatoriamente aos diferentes tratamentos, garantindo que possíveis variações nas condições ambientais ou de produção sejam distribuídas de forma equitativa entre os grupos.  
+
+Dessa forma, indagamos:
+
+a) Há diferença significativa na resistência mecânica do polímero entre as diferentes concentrações do plastificante?  
+b) Qual concentração proporciona a maior resistência mecânica?  
+
+```{r}
+#| lst-label: lst-codpolimero
+#| lst-cap: "Código gerado para simular dados resistência mecânica do polímero entre as diferentes concentrações do plastificante."
+#| label: tbl-polimero
+#| warning: false
+#| tbl-cap: Dados de resistência mecânica do polímero entre as diferentes concentrações do plastificante.
+
+# Carregando pacotes
+library(gt)
+
+# Definir semente para reprodutibilidade
+set.seed(10)
+
+# Criar os níveis do fator (concentração do plastificante)
+concentracao <- factor(rep(c("0%", "1%", "2%", "3%"), each = 5))
+
+# Gerar dados simulados para resistência (em MPa) para cada nível
+resistencia <- c(
+  rnorm(5, mean = 50, sd = 2),  # 0%
+  rnorm(5, mean = 55, sd = 2),  # 1%
+  rnorm(5, mean = 60, sd = 2),  # 2%
+  rnorm(5, mean = 58, sd = 2)   # 3%
+)
+
+# Criar data frame com os dados
+experimento <- data.frame(concentracao, resistencia)
+
+# Criando a tabela gt
+experimento |>
+  gt() |>
+   tab_style(
+    style = list(
+      cell_text(weight = "bold", color = "white"), # Negrito e cor do texto branco
+      cell_fill(color = "#0073e6") # Fundo azul
+    ),
+    locations = cells_column_labels()
+  ) |>
+  tab_style(
+    style = cell_text(align = "center"), # Centraliza o texto
+    locations = cells_body(columns = everything()) # Aplica a todas as colunas do corpo da tabela
+  ) |>
+   data_color(
+    columns = everything(), # Aplica a todas as colunas
+    rows = seq(1, nrow(experimento), 2), # Seleciona as linhas ímpares
+    colors = "#f2f2f2" # Cor de fundo cinza claro
+  ) |>
+  data_color(
+    columns = everything(),
+    rows = seq(2, nrow(experimento), 2), # Seleciona as linhas pares
+    colors = "#e6f7ff" # Cor de fundo azul claro
+  )
+
+```
+
+
+```{r}
+
+# Análise de variância (ANOVA)
+modelo <- aov(resistencia ~ concentracao, data = experimento)
+summary(modelo)
+
+# Teste de normalidade dos resíduos
+shapiro.test(resid(modelo))
+
+# Teste de homogeneidade de variâncias
+bartlett.test(resistencia ~ concentracao, data = experimento)
+
+# Gráfico boxplot para visualizar os dados
+boxplot(resistencia ~ concentracao, data = experimento, 
+        col = c("lightblue", "lightgreen", "lightcoral", "gold"),
+        main = "Efeito da Concentração do Plastificante na Resistência",
+        xlab = "Concentração do Plastificante",
+        ylab = "Resistência à Tração (MPa)")
+
+# Comparações múltiplas (Tukey)
+tukey <- TukeyHSD(modelo)
+print(tukey)
+
+# Gráfico de Tukey
+plot(tukey)
+```
+  
+:::
+
+::: {#exm-}
+
+## Aplicação em Engenharia de Telecomunicações
+
+> Avaliação do Desempenho de Antenas para Comunicação Sem Fio
+
+Uma empresa de telecomunicações está testando diferentes designs de antenas para comunicação sem fio em redes 5G. O objetivo é avaliar o impacto do formato da antena na **intensidade do sinal recebido (dBm)** em um ambiente controlado.  
+
+As características do experimento são: 
+
+- **Fatores:** Tipo de antena (níveis fixos)  
+- **Níveis:** 4 formatos diferentes de antena (A, B, C, D)  
+- **Unidades experimentais:** Medições de intensidade do sinal em pontos fixos de teste  
+- **Resposta:** Intensidade do sinal recebido (em dBm)  
+- **Delineamento:** Inteiramente casualizado  
+
+A empresa decide realizar **5 medições para cada tipo de antena**, totalizando **20 observações**. Como o DIC pressupõe alocação aleatória, cada medição é feita em uma ordem aleatória para evitar viés devido a variações temporais ou ambientais.  
+
+Dessa forma, indagamos:
+
+a) Há diferença significativa na intensidade do sinal entre os diferentes formatos de antena?  
+b) Qual design de antena apresenta o melhor desempenho médio?  
+
+```{r}
+#| lst-label: lst-codantena
+#| lst-cap: "Código gerado para simular dados de intensidade do sinal entre os diferentes formatos de antena"
+#| label: tbl-antena
+#| warning: false
+#| tbl-cap: Dados de intensidade do sinal entre os diferentes formatos de antena.
+
+# Carregando pacotes
+library(gt)
+
+
+# Definir semente para reprodutibilidade
+set.seed(123)
+
+# Criar os níveis do fator (tipo de antena)
+tipo_antena <- factor(rep(c("A", "B", "C", "D"), each = 5))
+
+# Gerar dados simulados para intensidade do sinal (dBm) para cada tipo de antena
+intensidade_sinal <- c(
+  rnorm(5, mean = -50, sd = 2),  # Antena A
+  rnorm(5, mean = -48, sd = 2),  # Antena B
+  rnorm(5, mean = -45, sd = 2),  # Antena C
+  rnorm(5, mean = -47, sd = 2)   # Antena D
+)
+
+# Criar data frame com os dados
+experimento <- data.frame(tipo_antena, intensidade_sinal)
+
+# Criando a tabela gt
+experimento |>
+  gt() |>
+   tab_style(
+    style = list(
+      cell_text(weight = "bold", color = "white"), # Negrito e cor do texto branco
+      cell_fill(color = "#0073e6") # Fundo azul
+    ),
+    locations = cells_column_labels()
+  ) |>
+  tab_style(
+    style = cell_text(align = "center"), # Centraliza o texto
+    locations = cells_body(columns = everything()) # Aplica a todas as colunas do corpo da tabela
+  ) |>
+   data_color(
+    columns = everything(), # Aplica a todas as colunas
+    rows = seq(1, nrow(experimento), 2), # Seleciona as linhas ímpares
+    colors = "#f2f2f2" # Cor de fundo cinza claro
+  ) |>
+  data_color(
+    columns = everything(),
+    rows = seq(2, nrow(experimento), 2), # Seleciona as linhas pares
+    colors = "#e6f7ff" # Cor de fundo azul claro
+  )
+
+```
+
+```{r}
+
+# Análise de variância (ANOVA)
+modelo <- aov(intensidade_sinal ~ tipo_antena, data = experimento)
+summary(modelo)
+
+# Teste de normalidade dos resíduos
+shapiro.test(resid(modelo))
+
+# Teste de homogeneidade de variâncias
+bartlett.test(intensidade_sinal ~ tipo_antena, data = experimento)
+
+# Gráfico boxplot para visualizar os dados
+boxplot(intensidade_sinal ~ tipo_antena, data = experimento, 
+        col = c("lightblue", "lightgreen", "lightcoral", "gold"),
+        main = "Efeito do Tipo de Antena na Intensidade do Sinal",
+        xlab = "Tipo de Antena",
+        ylab = "Intensidade do Sinal (dBm)")
+
+# Comparações múltiplas (Tukey)
+tukey <- TukeyHSD(modelo)
+print(tukey)
+
+# Gráfico de Tukey
+plot(tukey)
+
+```
+
+
+:::
+
+
+
+
+## Exercícios propostos {- id="exprop" title="Clique aqui!"}
+
+::: {#exr-}
+
+:::
+
+

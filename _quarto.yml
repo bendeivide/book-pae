@@ -1,0 +1,67 @@
+project:
+  type: book
+  output-dir: docs
+
+bibliography: bibliog.bib
+link-citations: true
+csl: associacao-brasileira-de-normas-tecnicas-ipea.csl
+lang: pt-BR
+
+book:
+  page-navigation: true
+  reader-mode: true
+  cover-image: hardcover.png
+  favicon: hardcover.png
+  title: "Planejamento e Análise de Experimentos"
+  author: "Ben Dêivide O. Batista"
+  date: today
+  page-footer:
+    left: |
+      Planejamento e Análise de Experimentos foi escrito por <a href="https://bendeivide.github.io/">Ben Dêivide</a></a> 
+    right: |
+      Este livro foi desenvolvido com o <a href="https://quarto.org/">Quarto</a>.
+  chapters:
+    - index.qmd
+    - cap00.qmd
+    - cap01.qmd
+    - cap02.qmd
+    - tabelas.qmd
+    - references.qmd
+#https://quarto.org/docs/reference/metadata/crossref.html#custom
+crossref:
+  lst-title: Código R
+  lst-prefix: Código R
+  custom:
+    - kind: float
+      caption-location: top
+      reference-prefix: "Tabela A"
+      key: tab
+  eq-prefix: ""
+  
+# crossref:
+#   custom:
+#     - kind: float
+#       reference-prefix: Video
+#       key: vid
+#       latex-env: video
+  
+
+
+
+
+nocite: |
+  @st1980, @banzato2006, @barbin2003, @bolfarine2010, @bolfarinebussab2005,
+  @cochrancox2005, @crespo2009, @dantas2008, @drapersmith1998, @magalhaeslima2023,
+  @magalhaes2011, @meyer2000, @montgomery2021, @montgomery2019, @mood1974,
+  @pagano2004, @pimentelgomes2022, @silva2015, @souza1998
+
+format:
+  html:
+    # Profundidade das subsecoes
+    number-depth: 6
+    theme: cosmo
+ 
+ 
+
+
+

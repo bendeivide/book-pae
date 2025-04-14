@@ -1,0 +1,5 @@
+# Distribuições amostrais, álgebra de matrizes e introdução ao R {#cap0 .unnumbered}
+
+## Introdução {#cap0:intro}
+
+Esta é a introdução do meu livro.

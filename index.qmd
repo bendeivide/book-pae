@@ -1,0 +1,89 @@
+# Bem-vindo {.unnumbered}
+
+Esse é um *livro digital* intitulado __"[Estatística Aplicada à Geotecnia]()"__, com o selo [Democratizando Conhecimento (DC)](https://bendeivide.github.io/dc/). Este livro é um convite à leitura para as bases da Estatística Básica aplicada à Geotecnia, apresentando de forma aplicada os conceitos tão importantes para a área da ciência de uma forma geral. Todos os exemplos são aplicados à Geotecnia.
+</br>
+</br>
+**O número de leitores  que acessaram esse livro:**
+</br>
+<center>
+<!-- hitwebcounter Code START -->
+<a href="https://www.hitwebcounter.com" target="_blank">
+<img src="https://hitwebcounter.com/counter/counter.php?page=19910263&style=0010&nbdigits=9&type=page&initCount=0" title="Counter Widget" Alt="Visit counter For Websites"   border="0" /></a>                                         
+</center> 
+
+# Livro físico {.unnumbered}
+
+# ISBN {.unnumbered}
+
+- __ISBN__ (Digital): 978-65-XX-XXXXX-X
+- __ISBN__ (Físico): 978-65-XX-XXXXX-X
+
+# Licença {.unnumbered}
+
+:::: {.columns}
+
+::: {.column width="30%" .v-center-container}
+
+</br>
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Licença Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
+
+
+:::
+
+::: {.column width="70%"}
+
+</a><br />Este trabalho está sob a Licença <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons - Atribuição-NãoComercial 4.0 Internacional</a>.
+
+:::
+
+::::
+
+
+:::: {.columns}
+
+::: {.column width="30%" .v-center-container}
+
+</br>
+
+<a href="https://bendeivide.github.io/dc/"><img src="SeloDC-preto.png" align="left" width="100" /></a>
+
+:::
+
+::: {.column width="70%"}
+
+Usamos também a filosofia de trabalho com o Selo Democratizando Conhecimento (DC), que pode ser acessada em <https://bendeivide.github.io/dc/>. O leitor é livre para compartilhar, redistribuir, transformar ou adaptar esta obra, desde que não venha a utilizá-la em nenhuma atividade de propósito comercial. Por fim, a única exigência é a atribuição dos créditos aos autores da obra.
+
+:::
+
+::::
+
+
+
+</br>
+</br>
+
+# Como citar {.unnumbered}
+
+- Como citar essa obra (Impressa):
+
+BATISTA, B. D. O.. **Planeajmento e Análise de Experimentos**. Ouro
+Branco, MG: [s.n.]. 2025. XXX p. ISBN 978-65-XX-XXXXX-X.
+
+
+- Como citar essa obra (Digital):
+
+```{r}
+#| include: false
+data <- format(Sys.Date(), "%d/%m/%Y")
+```
+
+
+CUSTÓDIO, T. C.; BATISTA, B. D. O.. **Planeajmento e Análise de Experimentos**. Ouro
+Branco, MG: [s.n.]. 2025. ISBN 978-65-XX-XXXXX-X. Disponível em: [https://bendeivide.
+github.io/book-estgeo/](https://bendeivide.
+github.io/book-estgeo/). Acesso em: `r data`.
+
+
+
+

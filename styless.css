@@ -1,0 +1,13 @@
+/* Reinicia o contador de capítulos para -1 */
+body {
+  counter-reset: chapter -1;
+}
+
+/* Numera os capítulos manualmente */
+h1.title {
+  counter-increment: chapter;
+}
+
+h1.title::before {
+  content: counter(chapter) ". ";
+}

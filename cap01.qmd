@@ -1,0 +1,24 @@
+# Estatística e Geotecnia {#sec-chap01}
+
+## Introdução à Geotecnia e Estatística {id="intgeoest" title="Clique aqui!"}
+
+## Origens da Geotecnia no Mundo e no Brasil {id="origem" title="Clique aqui!"}
+
+## A Estatística na Geotecnia {id="estgeo" title="Clique aqui!"}
+
+## Primeiras pesquisas em Geotecnia usando estatística {id="primgeoest" title="Clique aqui!"}
+
+## Gargalos da Estatística na Geotecnia {id="gestgeo" title="Clique aqui!"}
+
+## Importância da Estatística para o Futuro da Geotecnia {id="impestgeo" title="Clique aqui!"}
+
+
+
+## Exercícios propostos {- id="exprop" title="Clique aqui!"}
+
+::: {#exr-}
+
+
+
+:::
+
