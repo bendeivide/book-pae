@@ -1,0 +1,6 @@
+\providecommand{\Pageref}[1]{\hfill p.\pageref{#1}}
+ [**Exercício 2.1**](cap02.qmd#Exercise-2.1)\Pageref{Exercise-2.1}
+
+ [**Exercício 2.2**](cap02.qmd#Exercise-2.2)\Pageref{Exercise-2.2}
+
+ [**Exercício 2.3**](cap02.qmd#Exercise-2.3)\Pageref{Exercise-2.3}

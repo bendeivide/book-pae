@@ -96,6 +96,7 @@ div.csl-indent {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/foldbox/foldbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -123,7 +124,68 @@ div.csl-indent {
     "search-label": "Procurar"
   }
 }</script>
+<style>
+.Definition {
+  --color1: #5e737f;
+  --color2: #49606d;
+}
+.Theorem {
+  --color1: #d14747;
+  --color2: #8b1f1f;
+}
+.TODO {
+  --color1: #e7b1b4;
+  --color2: #8c3236;
+}
+.Example {
+  --color1: #c0c0c0;
+  --color2: #808080;
+}
+.Proof {
+  --color1: #aaa6a3;
+}
+.Exercise {
+  --color1: #4485f6;
+  --color2: #479bd1;
+}
+.Solution {
+  --color1: #9ad5f6;
+}
+.Corolary {
+  --color1: #df6d0d;
+  --color2: #b85604;
+}
+</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -1655,8 +1717,1962 @@ D-C -2.397119 -6.19761112 1.403373 0.3071163</code></pre>
 </section>
 <section id="exprop" class="level2 unnumbered" title="Clique aqui!">
 <h2 class="unnumbered anchored" title="Clique aqui!" data-anchor-id="exprop">Exercícios propostos</h2>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercício 2.1</strong></span> &nbsp;</p>
+<div id="Exercise-2.1" class="Exercise">
+<details class="Exercise fbx-simplebox fbx-default" open=""><summary><strong>Exercício 2.1</strong></summary><div>
+<p>Uma fábrica no setor de automação de uma fábrica que está desenvolvendo um sistema de parada automática para uma esteira transportadora. Esse sistema precisa identificar a presença de objetos com precisão e confiabilidade. Existe à disposição três tipos de sensores de proximidade com tecnologias diferentes:</p>
+<ul>
+<li>Sensor Ultrassônico;</li>
+<li>Sensor Infravermelho;</li>
+<li>Sensor Indutivo.</li>
+</ul>
+<p>Deseja-se escolher o melhor sensor para o sistema, e para isso, foi necessário realizar ensaios laboratoriais controlados para avaliar o erro médio de medição de cada sensor quando posicionado à mesma distância de um objeto padrão, apresentados na <a href="#tbl-sensor" class="quarto-xref">Tabela&nbsp;<span>2.3</span></a>.</p>
+<div class="cell">
+<div id="tbl-sensor" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sensor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;2.3: Dados de sensores de proximidade com tecnologias diferentes.
+</figcaption>
+<div aria-describedby="tbl-sensor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="uyrmzezagz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#uyrmzezagz table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#uyrmzezagz thead, #uyrmzezagz tbody, #uyrmzezagz tfoot, #uyrmzezagz tr, #uyrmzezagz td, #uyrmzezagz th {
+  border-style: none;
+}
+
+#uyrmzezagz p {
+  margin: 0;
+  padding: 0;
+}
+
+#uyrmzezagz .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#uyrmzezagz .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#uyrmzezagz .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#uyrmzezagz .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#uyrmzezagz .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#uyrmzezagz .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#uyrmzezagz .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#uyrmzezagz .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#uyrmzezagz .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#uyrmzezagz .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#uyrmzezagz .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#uyrmzezagz .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#uyrmzezagz .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#uyrmzezagz .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#uyrmzezagz .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#uyrmzezagz .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#uyrmzezagz .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#uyrmzezagz .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#uyrmzezagz .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#uyrmzezagz .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#uyrmzezagz .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#uyrmzezagz .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#uyrmzezagz .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#uyrmzezagz .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#uyrmzezagz .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#uyrmzezagz .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#uyrmzezagz .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#uyrmzezagz .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#uyrmzezagz .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#uyrmzezagz .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#uyrmzezagz .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#uyrmzezagz .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#uyrmzezagz .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#uyrmzezagz .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#uyrmzezagz .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#uyrmzezagz .gt_left {
+  text-align: left;
+}
+
+#uyrmzezagz .gt_center {
+  text-align: center;
+}
+
+#uyrmzezagz .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#uyrmzezagz .gt_font_normal {
+  font-weight: normal;
+}
+
+#uyrmzezagz .gt_font_bold {
+  font-weight: bold;
+}
+
+#uyrmzezagz .gt_font_italic {
+  font-style: italic;
+}
+
+#uyrmzezagz .gt_super {
+  font-size: 65%;
+}
+
+#uyrmzezagz .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#uyrmzezagz .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#uyrmzezagz .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#uyrmzezagz .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#uyrmzezagz .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#uyrmzezagz .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#uyrmzezagz .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#uyrmzezagz .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#uyrmzezagz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="Sensor" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="text-align: center; color: #FFFFFF; font-weight: bold; background-color: #0073E6;" scope="col">Sensor</th>
+<th id="Erro" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="text-align: center; color: #FFFFFF; font-weight: bold; background-color: #0073E6;" scope="col">Erro</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="Sensor" style="text-align: center; color: #000000; background-color: #F2F2F2;">Ultrassônico</td>
+<td class="gt_row gt_right" headers="Erro" style="text-align: center; color: #000000; background-color: #F2F2F2;">2.103749</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Sensor" style="text-align: center; color: #000000; background-color: #E6F7FF;">Ultrassônico</td>
+<td class="gt_row gt_right" headers="Erro" style="text-align: center; color: #000000; background-color: #E6F7FF;">2.063149</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Sensor" style="text-align: center; color: #000000; background-color: #F2F2F2;">Ultrassônico</td>
+<td class="gt_row gt_right" headers="Erro" style="text-align: center; color: #000000; background-color: #F2F2F2;">1.825734</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Sensor" style="text-align: center; color: #000000; background-color: #E6F7FF;">Ultrassônico</td>
+<td class="gt_row gt_right" headers="Erro" style="text-align: center; color: #000000; background-color: #E6F7FF;">1.980166</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Sensor" style="text-align: center; color: #000000; background-color: #F2F2F2;">Ultrassônico</td>
+<td class="gt_row gt_right" headers="Erro" style="text-align: center; color: #000000; background-color: #F2F2F2;">2.158909</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Sensor" style="text-align: center; color: #000000; background-color: #E6F7FF;">Infravermelho</td>
+<td class="gt_row gt_right" headers="Erro" style="text-align: center; color: #000000; background-color: #E6F7FF;">2.916938</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Sensor" style="text-align: center; color: #000000; background-color: #F2F2F2;">Infravermelho</td>
+<td class="gt_row gt_right" headers="Erro" style="text-align: center; color: #000000; background-color: #F2F2F2;">2.437577</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Sensor" style="text-align: center; color: #000000; background-color: #E6F7FF;">Infravermelho</td>
+<td class="gt_row gt_right" headers="Erro" style="text-align: center; color: #000000; background-color: #E6F7FF;">2.690897</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Sensor" style="text-align: center; color: #000000; background-color: #F2F2F2;">Infravermelho</td>
+<td class="gt_row gt_right" headers="Erro" style="text-align: center; color: #000000; background-color: #F2F2F2;">2.311998</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Sensor" style="text-align: center; color: #000000; background-color: #E6F7FF;">Infravermelho</td>
+<td class="gt_row gt_right" headers="Erro" style="text-align: center; color: #000000; background-color: #E6F7FF;">2.723056</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Sensor" style="text-align: center; color: #000000; background-color: #F2F2F2;">Indutivo</td>
+<td class="gt_row gt_right" headers="Erro" style="text-align: center; color: #000000; background-color: #F2F2F2;">1.765267</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Sensor" style="text-align: center; color: #000000; background-color: #E6F7FF;">Indutivo</td>
+<td class="gt_row gt_right" headers="Erro" style="text-align: center; color: #000000; background-color: #E6F7FF;">1.713367</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Sensor" style="text-align: center; color: #000000; background-color: #F2F2F2;">Indutivo</td>
+<td class="gt_row gt_right" headers="Erro" style="text-align: center; color: #000000; background-color: #F2F2F2;">1.564265</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Sensor" style="text-align: center; color: #000000; background-color: #E6F7FF;">Indutivo</td>
+<td class="gt_row gt_right" headers="Erro" style="text-align: center; color: #000000; background-color: #E6F7FF;">1.748117</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Sensor" style="text-align: center; color: #000000; background-color: #F2F2F2;">Indutivo</td>
+<td class="gt_row gt_right" headers="Erro" style="text-align: center; color: #000000; background-color: #F2F2F2;">1.711209</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<ul>
+<li>Sobre a estrutura do experimento</li>
+</ul>
+<ol type="a">
+<li>Qual é o fator em estudo e quais são seus níveis?</li>
+<li>A variável resposta é quantitativa ou qualitativa?</li>
+<li>O delineamento adotado (DIC) foi apropriado? Por quê?</li>
+<li>Como foi feita a aleatorização dos tratamentos?</li>
+<li>As unidades experimentais podem ser consideradas homogêneas?</li>
+</ol>
+<ul>
+<li>Análise exploratória de dados</li>
+</ul>
+<ol start="6" type="a">
+<li>Há indícios de outliers nos dados?</li>
+<li>As médias entre os tratamentos parecem visualmente diferentes?</li>
+<li>Há variações grandes entre as repetições de um mesmo tratamento?</li>
+</ol>
+<ul>
+<li>Interpretações na Análise de variância (ANAVA)</li>
+</ul>
+<ol start="10" type="a">
+<li>Qual é a hipótese nula do teste F?</li>
+<li>O valor-p da ANAVA é significativo?</li>
+<li>A variabilidade entre os tratamentos é maior que dentro dos tratamentos?</li>
+<li>O que o resultado da ANAVA nos diz sobre o efeito do fator?</li>
+</ol>
+<ul>
+<li>Interpretações do modelo na ANAVA e análise de resíduo</li>
+</ul>
+<ol start="14" type="a">
+<li>O que o resultado da ANAVA nos diz sobre o efeito do fator?</li>
+<li>Há alguma violação dos pressupostos da ANAVA (normalidade, homocedasticidade, independência)?</li>
+<li>Os resíduos apresentam comportamento aleatório?</li>
+<li>Há tendência, padrão ou variância não constante?</li>
+<li>Existe algum outlier evidente? Como ele impacta os resultados da análise?</li>
+<li>O delineamento escolhido (DIC) foi apropriado para esse experimento?</li>
+<li>O fator principal (tratamento) tem efeito significativo?</li>
+</ol>
+<ul>
+<li>Interpretações dos procedimentos de comparações múltiplas (PCMs)</li>
+</ul>
+<ol start="21" type="a">
+<li>Quais tratamentos diferem significativamente entre si?</li>
+<li>escolha um PCM e mostre quais sensores são estatisticamente superiores?</li>
+<li>É possível formar grupos de tratamentos equivalentes?</li>
+<li>Precisamos utilizar a ANAVA antes de um PCM? Explique.</li>
+</ol>
+</div></details>
+</div>
+<div id="Exercise-2.2" class="Exercise">
+<details class="Exercise fbx-simplebox fbx-default" open=""><summary><strong>Exercício 2.2</strong></summary><div>
+<p>Um Engenheiro de Telecomunicações é responsável por melhorar o desempenho de uma rede <em>Wi-Fi</em> em um prédio inteligente. O desafio é escolher a melhor antena para uso interno em ambientes com grande densidade de dispositivos conectados. Há quatro tipos de antenas comerciais para testes:</p>
+<ul>
+<li>Dipolo;</li>
+<li>Direcional;</li>
+<li>Omnidirecional;</li>
+<li>Patch.</li>
+</ul>
+<p>Um experimento em DIC foi realizado para avaliar o desempenho de 4 tipos de antenas para transmissão <em>Wi-Fi</em> em ambientes internos, considerando a intensidade média do sinal recebido (dBm), em diferentes pontos fixos, cujos dados são apresentados na <a href="#tbl-antenas" class="quarto-xref">Tabela&nbsp;<span>2.4</span></a>.</p>
+<div class="cell">
+<div id="tbl-antenas" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-antenas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;2.4: Dados de 4 tipos de antenas para transmissão <em>Wi-Fi</em> em ambientes internos, considerando a intensidade média do sinal recebido (dBm).
+</figcaption>
+<div aria-describedby="tbl-antenas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="gzrydrxsvr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gzrydrxsvr table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#gzrydrxsvr thead, #gzrydrxsvr tbody, #gzrydrxsvr tfoot, #gzrydrxsvr tr, #gzrydrxsvr td, #gzrydrxsvr th {
+  border-style: none;
+}
+
+#gzrydrxsvr p {
+  margin: 0;
+  padding: 0;
+}
+
+#gzrydrxsvr .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#gzrydrxsvr .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#gzrydrxsvr .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#gzrydrxsvr .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#gzrydrxsvr .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#gzrydrxsvr .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gzrydrxsvr .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#gzrydrxsvr .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#gzrydrxsvr .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#gzrydrxsvr .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#gzrydrxsvr .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#gzrydrxsvr .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#gzrydrxsvr .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#gzrydrxsvr .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#gzrydrxsvr .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#gzrydrxsvr .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#gzrydrxsvr .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#gzrydrxsvr .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#gzrydrxsvr .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gzrydrxsvr .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#gzrydrxsvr .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#gzrydrxsvr .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#gzrydrxsvr .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gzrydrxsvr .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#gzrydrxsvr .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#gzrydrxsvr .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gzrydrxsvr .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gzrydrxsvr .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#gzrydrxsvr .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gzrydrxsvr .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#gzrydrxsvr .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gzrydrxsvr .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#gzrydrxsvr .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gzrydrxsvr .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#gzrydrxsvr .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gzrydrxsvr .gt_left {
+  text-align: left;
+}
+
+#gzrydrxsvr .gt_center {
+  text-align: center;
+}
+
+#gzrydrxsvr .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#gzrydrxsvr .gt_font_normal {
+  font-weight: normal;
+}
+
+#gzrydrxsvr .gt_font_bold {
+  font-weight: bold;
+}
+
+#gzrydrxsvr .gt_font_italic {
+  font-style: italic;
+}
+
+#gzrydrxsvr .gt_super {
+  font-size: 65%;
+}
+
+#gzrydrxsvr .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#gzrydrxsvr .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#gzrydrxsvr .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#gzrydrxsvr .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#gzrydrxsvr .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#gzrydrxsvr .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#gzrydrxsvr .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#gzrydrxsvr .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#gzrydrxsvr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="Antena" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="text-align: center; color: #FFFFFF; font-weight: bold; background-color: #0073E6;" scope="col">Antena</th>
+<th id="Sinal" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="text-align: center; color: #FFFFFF; font-weight: bold; background-color: #0073E6;" scope="col">Sinal</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="Antena" style="text-align: center; color: #000000; background-color: #F2F2F2;">Dipolo</td>
+<td class="gt_row gt_right" headers="Sinal" style="text-align: center; color: #000000; background-color: #F2F2F2;">-47.96251</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Antena" style="text-align: center; color: #000000; background-color: #E6F7FF;">Dipolo</td>
+<td class="gt_row gt_right" headers="Sinal" style="text-align: center; color: #000000; background-color: #E6F7FF;">-48.36851</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Antena" style="text-align: center; color: #000000; background-color: #F2F2F2;">Dipolo</td>
+<td class="gt_row gt_right" headers="Sinal" style="text-align: center; color: #000000; background-color: #F2F2F2;">-50.74266</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Antena" style="text-align: center; color: #000000; background-color: #E6F7FF;">Dipolo</td>
+<td class="gt_row gt_right" headers="Sinal" style="text-align: center; color: #000000; background-color: #E6F7FF;">-49.19834</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Antena" style="text-align: center; color: #000000; background-color: #F2F2F2;">Dipolo</td>
+<td class="gt_row gt_right" headers="Sinal" style="text-align: center; color: #000000; background-color: #F2F2F2;">-47.41091</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Antena" style="text-align: center; color: #000000; background-color: #E6F7FF;">Direcional</td>
+<td class="gt_row gt_right" headers="Sinal" style="text-align: center; color: #000000; background-color: #E6F7FF;">-41.41531</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Antena" style="text-align: center; color: #000000; background-color: #F2F2F2;">Direcional</td>
+<td class="gt_row gt_right" headers="Sinal" style="text-align: center; color: #000000; background-color: #F2F2F2;">-43.81211</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Antena" style="text-align: center; color: #000000; background-color: #E6F7FF;">Direcional</td>
+<td class="gt_row gt_right" headers="Sinal" style="text-align: center; color: #000000; background-color: #E6F7FF;">-42.54551</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Antena" style="text-align: center; color: #000000; background-color: #F2F2F2;">Direcional</td>
+<td class="gt_row gt_right" headers="Sinal" style="text-align: center; color: #000000; background-color: #F2F2F2;">-44.44001</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Antena" style="text-align: center; color: #000000; background-color: #E6F7FF;">Direcional</td>
+<td class="gt_row gt_right" headers="Sinal" style="text-align: center; color: #000000; background-color: #E6F7FF;">-42.38472</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Antena" style="text-align: center; color: #000000; background-color: #F2F2F2;">Omnidirecional</td>
+<td class="gt_row gt_right" headers="Sinal" style="text-align: center; color: #000000; background-color: #F2F2F2;">-44.01680</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Antena" style="text-align: center; color: #000000; background-color: #E6F7FF;">Omnidirecional</td>
+<td class="gt_row gt_right" headers="Sinal" style="text-align: center; color: #000000; background-color: #E6F7FF;">-44.63959</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Antena" style="text-align: center; color: #000000; background-color: #F2F2F2;">Omnidirecional</td>
+<td class="gt_row gt_right" headers="Sinal" style="text-align: center; color: #000000; background-color: #F2F2F2;">-46.42882</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Antena" style="text-align: center; color: #000000; background-color: #E6F7FF;">Omnidirecional</td>
+<td class="gt_row gt_right" headers="Sinal" style="text-align: center; color: #000000; background-color: #E6F7FF;">-44.22260</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Antena" style="text-align: center; color: #000000; background-color: #F2F2F2;">Omnidirecional</td>
+<td class="gt_row gt_right" headers="Sinal" style="text-align: center; color: #000000; background-color: #F2F2F2;">-44.66550</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Antena" style="text-align: center; color: #000000; background-color: #E6F7FF;">Patch</td>
+<td class="gt_row gt_right" headers="Sinal" style="text-align: center; color: #000000; background-color: #E6F7FF;">-43.89278</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Antena" style="text-align: center; color: #000000; background-color: #F2F2F2;">Patch</td>
+<td class="gt_row gt_right" headers="Sinal" style="text-align: center; color: #000000; background-color: #F2F2F2;">-45.14593</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Antena" style="text-align: center; color: #000000; background-color: #E6F7FF;">Patch</td>
+<td class="gt_row gt_right" headers="Sinal" style="text-align: center; color: #000000; background-color: #E6F7FF;">-44.23418</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Antena" style="text-align: center; color: #000000; background-color: #F2F2F2;">Patch</td>
+<td class="gt_row gt_right" headers="Sinal" style="text-align: center; color: #000000; background-color: #F2F2F2;">-42.88937</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Antena" style="text-align: center; color: #000000; background-color: #E6F7FF;">Patch</td>
+<td class="gt_row gt_right" headers="Sinal" style="text-align: center; color: #000000; background-color: #E6F7FF;">-43.42043</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<ol type="a">
+<li>Por que usar um experimento em DIC?</li>
+<li>Qual das antenas oferece o melhor desempenho?</li>
+<li>Como garantir que as análises no experimento não estejam enviesados por interferência ou posição?</li>
+<li>Qual decisão você pode sustentar tecnicamente, sem depender apenas de testes empíricos informais?</li>
+</ol>
+</div></details>
+</div>
+<div id="Solution*-2.1" class="Solution">
+<details class="Solution fbx-simplebox fbx-default"><summary><strong>Solução</strong></summary><div>
+<ol type="a">
+<li>Usar o DIC nos garante que:
+<ul>
+<li>Todas as antenas podem ser testadas no mesmo ambiente controlado;</li>
+<li>As posições de teste (pontos fixos) são homogêneas e repetidas para cada antena;</li>
+<li>A aleatorização reduz viés sistemático;</li>
+<li>A análise estatística (como a ANAVA) ajuda a concluir se as diferenças são estatisticamente significativas — e não apenas ocasionais.</li>
+</ul></li>
+<li><em>Em construção…</em></li>
+<li>Essa preocupação se baseia na validade dos resultados experimentais, isto é, como evitar que fatores externos (como interferência eletromagnética ou posição física da antena) influenciem indevidamente os resultados do experimento? Esses fatores interferem no experimento da seguinte forma:
+<ul>
+<li>Interferência eletromagnética:
+<ul>
+<li>Equipamentos próximos, roteadores, paredes metálicas ou fontes de ruído (como micro-ondas) podem <strong>afetar o sinal</strong> recebido, independentemente da antena testada;</li>
+<li>Se um tipo de antena for testado em um momento de maior interferência e outro em menor, os resultados serão <strong>injustos</strong>;</li>
+</ul></li>
+<li>Posição física da antena:
+<ul>
+<li>Diferenças na <strong>orientação</strong>, <strong>altura</strong> ou <strong>posição no ambiente</strong> podem favorecer ou prejudicar certas antenas;</li>
+<li>por exemplo, uma antena direcional mal orientada terá desempenho ruim, mas isso não é culpa da antena — é uma <strong>falha de controle experimental</strong>.</li>
+</ul></li>
+</ul></li>
+</ol>
+<p>Para contornar estes dentre outros problemas, devemos:</p>
+<ul>
+<li><strong>Aleatorizar</strong>: altera a ordem em que as antenas são testadas para que <strong>viés sistemático</strong> (como ruído momentâneo) não favoreça um tratamento;</li>
+<li><strong>Controlar as condições</strong>: usar o <strong>mesmo local físico</strong>, mesma posição, mesma hora do dia, etc;</li>
+<li><strong>Padronizar</strong>: medir a intensidade do sinal sempre da mesma forma (por ex., distância fixa do ponto de teste);</li>
+<li><strong>Realizar repetições</strong>: realizar múltiplas medições para cada antena para <strong>diluir variações aleatórias</strong>.</li>
+</ul>
+<ol start="4" type="a">
+<li><em>Em construção…</em></li>
+</ol>
+</div></details>
+</div>
+<div id="Exercise-2.3" class="Exercise">
+<details class="Exercise fbx-simplebox fbx-default" open=""><summary><strong>Exercício 2.3</strong></summary><div>
+<p>Uma equipe de Engenheiros atua no laboratório de automação de uma indústria que utiliza braços robóticos para tarefas como soldagem, montagem de peças ou manipulação de objetos frágeis.</p>
+<p>A equipe de projeto está avaliando diferentes algoritmos de controle para melhorar a precisão de posicionamento do braço robótico. O objetivo é reduzir os erros de movimento e aumentar a eficiência e a segurança da operação.</p>
+<p>Surge o seguinte problema:</p>
+<blockquote class="blockquote">
+<p>Qual algoritmo de controlador oferece o melhor desempenho em termos de precisão de posicionamento?</p>
+</blockquote>
+<p>Os algoritmos controladores em avaliação são:</p>
+<ol type="1">
+<li>PID (Proporcional, Integral e Derivativo)</li>
+<li><em>Fuzzy</em></li>
+<li>LQR (do inglês, <em>Linear Quadratic Regulator</em>)</li>
+<li>Controle Adaptativo;</li>
+<li>Controle por Redes Neurais.</li>
+</ol>
+<p>Dessa forma, um experimento foi realizado para avaliar o desempenho de cinco tipos de controladores no posicionamento de um braço robótico. Considerou-se que as <strong>unidades amostrais</strong> são execuções independentes de uma mesma trajetória em bancada, com o mesmo robô e sob as mesmas condições controladas de ambiente e carga.</p>
+<p>Cada tipo de controlador será testado em 5 execuções independentes, totalizando 25 observações.</p>
+<p>Por fim, a <strong>variável resposta</strong> é o erro quadrático médio (EQM) do posicionamento do atuador final do braço robótico, calculado ao longo de uma trajetória padrão, sendo calculada como:</p>
+<p><span class="math display">\[
+\text{EQM} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+\]</span> onde:</p>
+<ul>
+<li><span class="math inline">\(y_i\)</span> é a <strong>posição-alvo</strong> no ponto <span class="math inline">\(i\)</span>,</li>
+<li><span class="math inline">\(\hat{y}_i\)</span> é a <strong>posição real medida</strong> no ponto <span class="math inline">\(i\)</span>,</li>
+<li><span class="math inline">\(n\)</span> é o número de pontos ao longo da trajetória.</li>
+</ul>
+<p>Os dados são apresentados a seguir, <a href="#tbl-algoritmos" class="quarto-xref">Tabela&nbsp;<span>2.5</span></a>.</p>
+<div class="cell">
+<div id="tbl-algoritmos" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-algoritmos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;2.5: Dados de 5 tipos de algoritmo oferece o melhor desempenho em termos de precisão de posicionamento, considerando.
+</figcaption>
+<div aria-describedby="tbl-algoritmos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="jnmaiyhpuz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jnmaiyhpuz table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#jnmaiyhpuz thead, #jnmaiyhpuz tbody, #jnmaiyhpuz tfoot, #jnmaiyhpuz tr, #jnmaiyhpuz td, #jnmaiyhpuz th {
+  border-style: none;
+}
+
+#jnmaiyhpuz p {
+  margin: 0;
+  padding: 0;
+}
+
+#jnmaiyhpuz .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#jnmaiyhpuz .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#jnmaiyhpuz .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#jnmaiyhpuz .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#jnmaiyhpuz .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#jnmaiyhpuz .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jnmaiyhpuz .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#jnmaiyhpuz .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#jnmaiyhpuz .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#jnmaiyhpuz .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#jnmaiyhpuz .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#jnmaiyhpuz .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#jnmaiyhpuz .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#jnmaiyhpuz .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#jnmaiyhpuz .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#jnmaiyhpuz .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#jnmaiyhpuz .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#jnmaiyhpuz .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#jnmaiyhpuz .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jnmaiyhpuz .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#jnmaiyhpuz .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#jnmaiyhpuz .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#jnmaiyhpuz .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jnmaiyhpuz .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#jnmaiyhpuz .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#jnmaiyhpuz .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jnmaiyhpuz .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jnmaiyhpuz .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#jnmaiyhpuz .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jnmaiyhpuz .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#jnmaiyhpuz .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jnmaiyhpuz .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#jnmaiyhpuz .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jnmaiyhpuz .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#jnmaiyhpuz .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jnmaiyhpuz .gt_left {
+  text-align: left;
+}
+
+#jnmaiyhpuz .gt_center {
+  text-align: center;
+}
+
+#jnmaiyhpuz .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#jnmaiyhpuz .gt_font_normal {
+  font-weight: normal;
+}
+
+#jnmaiyhpuz .gt_font_bold {
+  font-weight: bold;
+}
+
+#jnmaiyhpuz .gt_font_italic {
+  font-style: italic;
+}
+
+#jnmaiyhpuz .gt_super {
+  font-size: 65%;
+}
+
+#jnmaiyhpuz .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#jnmaiyhpuz .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#jnmaiyhpuz .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#jnmaiyhpuz .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#jnmaiyhpuz .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#jnmaiyhpuz .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#jnmaiyhpuz .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#jnmaiyhpuz .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#jnmaiyhpuz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="Algoritmo" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="text-align: center; color: #FFFFFF; font-weight: bold; background-color: #0073E6;" scope="col">Algoritmo</th>
+<th id="EQM" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="text-align: center; color: #FFFFFF; font-weight: bold; background-color: #0073E6;" scope="col">EQM</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #F2F2F2;">PID</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #F2F2F2;">0.3509373</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #E6F7FF;">PID</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #E6F7FF;">0.3407874</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #F2F2F2;">PID</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #F2F2F2;">0.2814335</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #E6F7FF;">PID</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #E6F7FF;">0.3200416</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #F2F2F2;">PID</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #F2F2F2;">0.3647273</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #E6F7FF;">PID</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #E6F7FF;">0.3694897</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #F2F2F2;">LQR</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #F2F2F2;">0.2316770</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #E6F7FF;">LQR</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #E6F7FF;">0.2654530</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #F2F2F2;">LQR</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #F2F2F2;">0.2149331</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #E6F7FF;">LQR</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #E6F7FF;">0.2697409</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #F2F2F2;">LQR</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #F2F2F2;">0.3240712</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #E6F7FF;">LQR</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #E6F7FF;">0.3102313</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #F2F2F2;">Fuzzy</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #F2F2F2;">0.4057060</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #E6F7FF;">Fuzzy</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #E6F7FF;">0.4792467</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #F2F2F2;">Fuzzy</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #F2F2F2;">0.4644834</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #E6F7FF;">Fuzzy</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #E6F7FF;">0.4253608</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #F2F2F2;">Fuzzy</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #F2F2F2;">0.3627034</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #E6F7FF;">Fuzzy</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #E6F7FF;">0.4082910</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #F2F2F2;">Adaptativo</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #F2F2F2;">0.3562761</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #E6F7FF;">Adaptativo</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #E6F7FF;">0.3341489</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #F2F2F2;">Adaptativo</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #F2F2F2;">0.2801845</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #E6F7FF;">Adaptativo</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #E6F7FF;">0.2007357</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #F2F2F2;">Adaptativo</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #F2F2F2;">0.2762567</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #E6F7FF;">Adaptativo</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #E6F7FF;">0.2040469</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #F2F2F2;">Redes Neurais</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #F2F2F2;">0.2120441</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #E6F7FF;">Redes Neurais</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #E6F7FF;">0.2387902</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #F2F2F2;">Redes Neurais</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #F2F2F2;">0.2293733</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #E6F7FF;">Redes Neurais</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #E6F7FF;">0.2238352</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #F2F2F2;">Redes Neurais</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #F2F2F2;">0.2469472</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="Algoritmo" style="text-align: center; color: #000000; background-color: #E6F7FF;">Redes Neurais</td>
+<td class="gt_row gt_right" headers="EQM" style="text-align: center; color: #000000; background-color: #E6F7FF;">0.2423866</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Pergunta-se:</p>
+<ul>
+<li>Sobre o Planejamento do Experimento</li>
+</ul>
+<ol type="a">
+<li>Os resultados de EQM podem variar de acordo com o tempo, carga ou ambiente, por exemplo. O que fazer para contornar esse problema no experimento?</li>
+<li>Se o teste de cada algoritmo de controle for feito sempre na mesma ordem, o que pode acontecer nos resultados coletados nas unidade amostrais?</li>
+<li>Pequenas diferenças podem parecer importantes quando comparamos numericamente os valores médios no EQM dos algoritmos avaliados, mas podemos afirmar que são estatisticamente significativos? A que se deve essas variações.</li>
+<li>Qual o tipo de delineamento adequado para o experimento? Justifique.</li>
+<li>Como o experimento poderia ser aprimorado?</li>
+</ol>
+<ul>
+<li>Sobre a análise do experimento</li>
+</ul>
+<ol start="6" type="a">
+<li>O fator “tipo de controlador” tem efeito significativo?</li>
+<li>Qual(is) controlador(es) apresenta(m) menor EQM médio?</li>
+<li>Existem diferenças estatísticas entre os controladores?</li>
+<li>O modelo da ANAVA se ajusta bem aos dados?</li>
+<li>As diferenças observadas são relevantes na prática (além de significativas)?</li>
+<li>Existe variação interna (entre repetições) significativa?</li>
+</ol>
+</div></details>
+</div>
+<div id="Solution*-2.2" class="Solution">
+<details class="Solution fbx-simplebox fbx-default"><summary><strong>Solução</strong></summary><div>
+<ol type="a">
+<li><p>Para minimizar a influência de fatores externos como <strong>tempo, carga ou ambiente</strong>, que podem introduzir <strong>viés</strong> nos resultados, devem ser adotadas estratégias fundamentais do planejamento experimental:</p>
+<ul>
+<li>Controle de Condições Experimentais:
+<ul>
+<li>Realizar os testes em <strong>ambiente de laboratório controlado</strong> (temperatura, iluminação, vibrações, interferência);</li>
+<li>Garantir que a <strong>carga no braço robótico</strong> seja sempre a mesma ou desprezível durante as execuções.</li>
+</ul></li>
+<li>Padronização do Procedimento:
+<ul>
+<li>Executar sempre a <strong>mesma trajetória</strong> com <strong>mesma velocidade</strong>, <strong>mesmo número de pontos</strong> e <strong>tempo total</strong>;</li>
+<li>Reinicializar o sistema entre execuções, se necessário.</li>
+</ul></li>
+<li>Casualização:
+<ul>
+<li><strong>Aleatorizar a ordem dos algoritmos de controle</strong> a cada repetição;</li>
+<li>Isso evita que um algoritmo seja sempre testado, por exemplo, quando a bateria está mais cheia ou o motor mais frio.</li>
+<li>Distribui aleatoriamente o efeito de variações sistemáticas ao longo do tempo.</li>
+</ul></li>
+</ul></li>
+<li><p>Muito problemas podem acontecer no experimento:</p>
+<ul>
+<li>Efeito de ordem ou tempo:
+<ul>
+<li>Se o sistema se <strong>aquecesse</strong> ou a <strong>bateria se descarregasse</strong> ao longo dos testes, os algoritmos testados por último tenderiam a ter <strong>pior desempenho</strong> (maior EQM), não por serem piores, mas pelas <strong>condições alteradas</strong>;</li>
+</ul></li>
+<li>Associação indevida entre tratamento e tendência externa;
+<ul>
+<li>Se o sistema se <strong>aquecesse</strong> ou a <strong>bateria se descarregasse</strong> ao longo dos testes, os algoritmos testados por último tenderiam a ter <strong>pior desempenho</strong> (maior EQM), não por serem piores, mas pelas <strong>condições alteradas</strong>;</li>
+</ul></li>
+<li>Associação indevida entre tratamento e tendência externa;
+<ul>
+<li>A <strong>posição na sequência dos testes</strong> pode se confundir com o <strong>efeito do algoritmo</strong>, distorcendo os resultados;</li>
+<li>Ex: O “melhor algoritmo” pode parecer o primeiro apenas porque foi testado em melhores condições;</li>
+</ul></li>
+<li>Aumento do erro experimental:
+<ul>
+<li>A falta de aleatorização pode <strong>inflar a variabilidade residual</strong>, dificultando a detecção de diferenças reais entre algoritmos;</li>
+</ul></li>
+<li>Conclusões inválidas:
+<ul>
+<li>A ANOVA pressupõe <strong>independência e aleatoriedade</strong> das unidades amostrais;</li>
+<li>Sem aleatorização, a validade estatística da análise fica comprometida: você pode concluir que há diferença entre algoritmos quando na verdade está apenas observando <strong>um efeito de ordem</strong>.</li>
+</ul></li>
+</ul></li>
+<li><p>Não necessariamente. Diferenças numéricas entre médias não garantem que essas diferenças sejam estatisticamente significativas. A significância depende de três fatores principais:</p>
+<ul>
+<li>Variabilidade dos dados (erro experimental):
+<ul>
+<li>Se as repetições de cada algoritmo mostram alta variabilidade no EQM, uma pequena diferença entre médias pode ser irrelevante;</li>
+<li>Exemplo: médias de 4.2 vs.&nbsp;4.5 podem parecer diferentes, mas se o desvio padrão for 0.6, elas podem estar dentro da margem de erro;</li>
+</ul></li>
+<li>Número de repetições:
+<ul>
+<li>Um número pequeno de repetições reduz o poder do teste estatístico;</li>
+<li>Mais repetições permitem estimar melhor a variabilidade e detectar diferenças reais;</li>
+</ul></li>
+<li>Teste estatístico (como ANAVA):
+<ul>
+<li>O Teste F determina se a variação entre as médias é maior do que a variação esperada por acaso;</li>
+<li>A ANOVA responde:
+<ul>
+<li>“As diferenças observadas entre algoritmos são maiores do que seria esperado pela variabilidade natural do experimento?”</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ol>
+<p>Portanto, essas variações se devem a diversos fatores: - Aleatoriedade natural no experimento (ex: ruído de sensores, microflutuações na trajetória); - Mudanças não controladas no ambiente (temperatura, interferência eletromagnética); - Variações internas do sistema, mesmo sob mesmas condições; - Erro humano ou de medição (dependendo da forma de registro do EQM).</p>
+<ol start="4" type="a">
+<li><p><em>Em construção…</em></p></li>
+<li><p>Vejamos como aprimorar o experimento:</p>
+<ul>
+<li>Aumentar o número de repetições:
+<ul>
+<li>Melhora a <strong>precisão na estimativa das médias</strong>;</li>
+<li>Reduz a influência de valores atípicos;</li>
+<li>Aumenta o <strong>poder do teste estatístico</strong> para detectar diferenças reais;</li>
+</ul></li>
+<li>Melhorar o controle do ambiente:
+<ul>
+<li>Monitorar e registrar <strong>temperatura</strong>, <strong>carga de CPU</strong>, <strong>tensão de alimentação</strong>, etc.;</li>
+<li>Isolar o robô de <strong>interferências externas</strong> (vibração, Wi-Fi, ruído elétrico);</li>
+<li>Executar os testes em <strong>condições mais uniformes</strong>;</li>
+</ul></li>
+<li>Usar aleatorização ou blocagem mais estruturada:
+<ul>
+<li>Além da <strong>aleatorização completa</strong>, pode-se dividir o experimento em <strong>blocos</strong> (ex: por turno, por operador, por horário) e aplicar um <strong>delineamento em blocos casualizados (DBC)</strong> se houver fatores de variação identificados;</li>
+<li>Isso aumenta a sensibilidade da análise;</li>
+</ul></li>
+<li>Incluir mais variáveis resposta:
+<ul>
+<li>Além do EQM, medir:
+<ul>
+<li>Tempo de estabilização;</li>
+<li>Sobressinal;</li>
+<li>Energia consumida;</li>
+<li>Tempo de resposta;</li>
+</ul></li>
+<li>Isso dá uma visão <strong>multivariada e mais completa</strong> do desempenho de cada algoritmo.</li>
+</ul></li>
+</ul></li>
+</ol>
+</div></details>
 </div>
 
 

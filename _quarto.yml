@@ -44,7 +44,82 @@ crossref:
 #       reference-prefix: Video
 #       key: vid
 #       latex-env: video
-  
+# Baseado em:
+# - https://stackoverflow.com/questions/73288264/shared-counter-in-quarto-for-exercises-examples-etc
+# - https://github.com/ute/custom-numbered-blocks
+filters: 
+  - custom-numbered-blocks
+custom-numbered-blocks:
+  groups: 
+    exgrp: 
+      collapse: false
+      boxstyle: foldbox.simple #só existe essa opcao por enquanto
+    thmlike:
+      colors: [948bde, 584eab]
+      boxstyle: foldbox.simple
+      collapse: false
+      listin: [mathstuff]
+    collike:
+      colors: [948bde, 584eab]
+      boxstyle: foldbox.simple
+      collapse: false
+      listin: [mathstuff]
+    todos: default
+    deflike: 
+      boxstyle: foldbox.simple
+      collapse: false
+      listin: [mathstuff]
+    exlike: 
+      boxstyle: foldbox.simple
+      collapse: false
+      listin: [mathstuff]
+    exerlike: 
+      boxstyle: foldbox.simple
+      collapse: false
+      listin: [mathstuff]
+  classes:
+    Example:
+      #colors: [948bde, 584eab]
+      group: exlike
+      collapse: false
+      label: Exemplo
+    Definition:
+      group: deflike
+      collapse: false
+      colors: [5e737f, 49606d]
+      listin: [stilltodo]
+      label: Definição
+    Exercise:
+      colors: [4485f6, 479bd1]
+      collapse: false
+      group: exerlike
+      label: Exercício
+      #listin: [listexerc]
+    Theorem:
+      colors: [d14747, 8b1f1f]
+      group: thmlike
+      label: Teorema
+    Corolary:
+      colors: [df6d0d, b85604]
+      group: collike
+      label: Corolário
+    Proof:
+      numbered: false
+      colors: [aaa6a3, ]
+      collapse: true
+      boxstyle: foldbox.simple
+      label: Prova
+    TODO:
+      label: "To do"
+      colors: [e7b1b4, 8c3236]
+      group: todos
+      listin: [stilltodo]
+    Solution:
+      numbered: false
+      colors: [9ad5f6, ]
+      collapse: true
+      boxstyle: foldbox.simple
+      label: Solução  
 
 
 

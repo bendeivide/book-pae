@@ -1,6 +1,6 @@
 # Bem-vindo {.unnumbered}
 
-Esse é um *livro digital* intitulado __"[Estatística Aplicada à Geotecnia]()"__, com o selo [Democratizando Conhecimento (DC)](https://bendeivide.github.io/dc/). Este livro é um convite à leitura para as bases da Estatística Básica aplicada à Geotecnia, apresentando de forma aplicada os conceitos tão importantes para a área da ciência de uma forma geral. Todos os exemplos são aplicados à Geotecnia.
+Esse é um *livro digital* intitulado __"[PLanejamento e Análise de Experimentos]()"__, com o selo [Democratizando Conhecimento (DC)](https://bendeivide.github.io/dc/). Este livro é um convite à leitura para as bases da Estatística Básica aplicada à Geotecnia, apresentando de forma aplicada os conceitos tão importantes para a área da ciência de uma forma geral. Todos os exemplos são aplicados à Geotecnia.
 </br>
 </br>
 **O número de leitores  que acessaram esse livro:**
@@ -81,8 +81,8 @@ data <- format(Sys.Date(), "%d/%m/%Y")
 
 CUSTÓDIO, T. C.; BATISTA, B. D. O.. **Planeajmento e Análise de Experimentos**. Ouro
 Branco, MG: [s.n.]. 2025. ISBN 978-65-XX-XXXXX-X. Disponível em: [https://bendeivide.
-github.io/book-estgeo/](https://bendeivide.
-github.io/book-estgeo/). Acesso em: `r data`.
+github.io/book-pae/](https://bendeivide.
+github.io/book-pae/). Acesso em: `r data`.
 
 
 

@@ -223,8 +223,404 @@ plot(tukey)
 
 ## Exercícios propostos {- id="exprop" title="Clique aqui!"}
 
-::: {#exr-}
+::: Exercise
+
+Uma fábrica no setor de automação de uma fábrica que está desenvolvendo um sistema de parada automática para uma esteira transportadora. Esse sistema precisa identificar a presença de objetos com precisão e confiabilidade. Existe à disposição três tipos de sensores de proximidade com tecnologias diferentes:
+
+- Sensor Ultrassônico;
+- Sensor Infravermelho;
+- Sensor Indutivo.
+
+Deseja-se escolher o melhor sensor para o sistema, e para isso, foi necessário realizar ensaios laboratoriais controlados para avaliar o erro médio de medição de cada sensor quando posicionado à mesma distância de um objeto padrão, apresentados na @tbl-sensor.
+
+
+```{r}
+#| label: tbl-sensor
+#| echo: false
+#| warning: false
+#| lst-cap: Código gerado para simular dados de sensores de proximidade com tecnologias diferentes.
+#| lst-label: lst-codsensor
+#| tbl-cap: Dados de sensores de proximidade com tecnologias diferentes.
+
+# Carregando pacotes
+library(gt)
+
+# Semente
+set.seed(10)
+
+# Sensores de proximidade
+sensor <- factor(rep(c("Ultrassônico", "Infravermelho", "Indutivo"), each = 5))
+
+# Erro
+erro <- c(
+  rnorm(5, mean = 2.1, sd = 0.2),   # Ultrassônico
+  rnorm(5, mean = 2.8, sd = 0.3),   # Infravermelho
+  rnorm(5, mean = 1.6, sd = 0.15)   # Indutivo
+)
+
+# Criar data frame com os dados
+experimento <- data.frame(Sensor = sensor, Erro = erro)
+
+
+
+# Criando a tabela gt
+experimento |>
+  gt() |>
+   tab_style(
+    style = list(
+      cell_text(weight = "bold", color = "white"), # Negrito e cor do texto branco
+      cell_fill(color = "#0073e6") # Fundo azul
+    ),
+    locations = cells_column_labels()
+  ) |>
+  tab_style(
+    style = cell_text(align = "center"), # Centraliza o texto
+    locations = cells_body(columns = everything()) # Aplica a todas as colunas do corpo da tabela
+  ) |>
+   data_color(
+    columns = everything(), # Aplica a todas as colunas
+    rows = seq(1, nrow(experimento), 2), # Seleciona as linhas ímpares
+    colors = "#f2f2f2" # Cor de fundo cinza claro
+  ) |>
+  data_color(
+    columns = everything(),
+    rows = seq(2, nrow(experimento), 2), # Seleciona as linhas pares
+    colors = "#e6f7ff" # Cor de fundo azul claro
+  )
+
+```
+
+- Sobre a estrutura do experimento
+
+a) Qual é o fator em estudo e quais são seus níveis?
+b) A variável resposta é quantitativa ou qualitativa?
+c) O delineamento adotado (DIC) foi apropriado? Por quê?
+d) Como foi feita a aleatorização dos tratamentos?
+e) As unidades experimentais podem ser consideradas homogêneas?
+
+- Análise exploratória de dados
+
+f) Há indícios de outliers nos dados?
+g) As médias entre os tratamentos parecem visualmente diferentes?
+h) Há variações grandes entre as repetições de um mesmo tratamento?
+
+- Interpretações na Análise de variância (ANAVA)
+
+j) Qual é a hipótese nula do teste F?
+k) O valor-p  da ANAVA é significativo?
+l) A variabilidade entre os tratamentos é maior que dentro dos tratamentos?
+m) O que o resultado da ANAVA nos diz sobre o efeito do fator?
+
+- Interpretações do modelo na ANAVA e análise de resíduo
+
+n) O que o resultado da ANAVA nos diz sobre o efeito do fator?
+o) Há alguma violação dos pressupostos da ANAVA (normalidade, homocedasticidade, independência)?
+p) Os resíduos apresentam comportamento aleatório?
+q) Há tendência, padrão ou variância não constante?
+r) Existe algum outlier evidente? Como ele impacta os resultados da análise?
+s) O delineamento escolhido (DIC) foi apropriado para esse experimento?
+t) O fator principal (tratamento) tem efeito significativo?
+
+- Interpretações dos procedimentos de comparações múltiplas (PCMs)
+
+u) Quais tratamentos diferem significativamente entre si?
+v) escolha um PCM e mostre quais sensores são estatisticamente superiores?
+x) É possível formar grupos de tratamentos equivalentes?
+z) Precisamos utilizar a ANAVA antes de um PCM? Explique.
+
 
 :::
 
+::: Exercise
+
+Um Engenheiro de Telecomunicações é responsável por melhorar o desempenho de uma rede *Wi-Fi* em um prédio inteligente. O desafio é escolher a melhor antena para uso interno em ambientes com grande densidade de dispositivos conectados. Há quatro tipos de antenas comerciais para testes:
+
+- Dipolo;
+- Direcional;
+- Omnidirecional;
+- Patch.
+
+Um experimento em DIC foi realizado para avaliar o desempenho de 4 tipos de antenas para transmissão *Wi-Fi* em ambientes internos, considerando a intensidade média do sinal recebido (dBm), em diferentes pontos fixos, cujos dados são apresentados na @tbl-antenas.
+
+
+
+
+```{r}
+#| label: tbl-antenas
+#| echo: false
+#| warning: false
+#| lst-cap: Código gerado para simular dados de 4 tipos de antenas para transmissão *Wi-Fi* em ambientes internos.
+#| lst-label: lst-codantenas
+#| tbl-cap: Dados de 4 tipos de antenas para transmissão *Wi-Fi* em ambientes internos, considerando a intensidade média do sinal recebido (dBm).
+
+# Carregando pacotes
+library(gt)
+
+# Semente
+set.seed(10)
+
+antena <- factor(rep(c("Dipolo", "Direcional", "Omnidirecional", "Patch"), each = 5))
+
+sinal <- c(
+  rnorm(5, mean = -48, sd = 2),   # Dipolo
+  rnorm(5, mean = -42, sd = 1.5), # Direcional
+  rnorm(5, mean = -46, sd = 1.8), # Omnidirecional
+  rnorm(5, mean = -44, sd = 1.2)  # Patch
+)
+
+# Criar data frame com os dados
+experimento <- data.frame(Antena = antena, Sinal = sinal)
+
+
+
+# Criando a tabela gt
+experimento |>
+  gt() |>
+   tab_style(
+    style = list(
+      cell_text(weight = "bold", color = "white"), # Negrito e cor do texto branco
+      cell_fill(color = "#0073e6") # Fundo azul
+    ),
+    locations = cells_column_labels()
+  ) |>
+  tab_style(
+    style = cell_text(align = "center"), # Centraliza o texto
+    locations = cells_body(columns = everything()) # Aplica a todas as colunas do corpo da tabela
+  ) |>
+   data_color(
+    columns = everything(), # Aplica a todas as colunas
+    rows = seq(1, nrow(experimento), 2), # Seleciona as linhas ímpares
+    colors = "#f2f2f2" # Cor de fundo cinza claro
+  ) |>
+  data_color(
+    columns = everything(),
+    rows = seq(2, nrow(experimento), 2), # Seleciona as linhas pares
+    colors = "#e6f7ff" # Cor de fundo azul claro
+  )
+
+```
+a) Por que usar um experimento em DIC?
+b) Qual das antenas oferece o melhor desempenho?
+c) Como garantir que as análises no experimento não estejam enviesados por interferência ou posição?
+d) Qual decisão você pode sustentar tecnicamente, sem depender apenas de testes empíricos informais?
+
+
+:::
+
+::: Solution
+
+a) Usar o DIC nos garante que:
+    - Todas as antenas podem ser testadas no mesmo ambiente controlado;
+    - As posições de teste (pontos fixos) são homogêneas e repetidas para cada antena;
+    - A aleatorização reduz viés sistemático;
+    - A análise estatística (como a ANAVA) ajuda a concluir se as diferenças são estatisticamente significativas — e não apenas ocasionais.
+b) *Em construção...*
+c) Essa preocupação se baseia na validade dos resultados experimentais, isto é, como evitar que fatores externos (como interferência eletromagnética ou posição física da antena) influenciem indevidamente os resultados do experimento? Esses fatores interferem no experimento da seguinte forma:
+   - Interferência eletromagnética:
+       - Equipamentos próximos, roteadores, paredes metálicas ou fontes de ruído (como micro-ondas) podem **afetar o sinal** recebido, independentemente da antena testada;
+       - Se um tipo de antena for testado em um momento de maior interferência e outro em menor, os resultados serão **injustos**;
+   - Posição física da antena:
+       - Diferenças na **orientação**, **altura** ou **posição no ambiente** podem favorecer ou prejudicar certas antenas;
+       - por exemplo, uma antena direcional mal orientada terá desempenho ruim, mas isso não é culpa da antena — é uma **falha de controle experimental**.
+
+Para contornar estes dentre outros problemas, devemos:
+
+- **Aleatorizar**: altera a ordem em que as antenas são testadas para que **viés sistemático** (como ruído momentâneo) não favoreça um tratamento;
+- **Controlar as condições**: usar o **mesmo local físico**, mesma posição, mesma hora do dia, etc;
+- **Padronizar**: medir a intensidade do sinal sempre da mesma forma (por ex., distância fixa do ponto de teste);
+- **Realizar repetições**: realizar múltiplas medições para cada antena para **diluir variações aleatórias**.
+
+d) *Em construção...*
+
+:::
+
+
+::: Exercise
+
+Uma equipe de Engenheiros atua no laboratório de automação de uma indústria que utiliza braços robóticos para tarefas como soldagem, montagem de peças ou manipulação de objetos frágeis. 
+
+A equipe de projeto está avaliando diferentes algoritmos de controle para melhorar a precisão de posicionamento do braço robótico. O objetivo é reduzir os erros de movimento e aumentar a eficiência e a segurança da operação.
+
+Surge o seguinte problema:
+
+> Qual algoritmo de controlador oferece o melhor desempenho em termos de precisão de posicionamento?
+
+Os algoritmos controladores em avaliação são:
+
+1. PID (Proporcional, Integral e Derivativo)
+2. *Fuzzy*
+3. LQR (do inglês, *Linear Quadratic Regulator*)
+4. Controle Adaptativo;
+5. Controle por Redes Neurais.
+
+Dessa forma, um experimento foi realizado para avaliar o desempenho de cinco tipos de controladores no posicionamento de um braço robótico. Considerou-se que as **unidades amostrais** são execuções independentes de uma mesma trajetória em bancada, com o mesmo robô e sob as mesmas condições controladas de ambiente e carga. 
+
+Cada tipo de controlador será testado em 5 execuções independentes, totalizando 25 observações.
+
+Por fim, a **variável resposta** é o erro quadrático médio (EQM) do posicionamento do atuador final do braço robótico, calculado ao longo de uma trajetória padrão, sendo calculada como:
+
+$$
+\text{EQM} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+$$
+onde:
+
+* $y_i$ é a **posição-alvo** no ponto $i$,
+* $\hat{y}_i$ é a **posição real medida** no ponto $i$,
+* $n$ é o número de pontos ao longo da trajetória.
+
+Os dados são apresentados a seguir, @tbl-algoritmos.
+
+
+```{r}
+#| label: tbl-algoritmos
+#| echo: false
+#| warning: false
+#| lst-cap: Código gerado para simular dados de 5 tipos de algoritmo  de controle oferece o melhor desempenho em termos de precisão de posicionamento.
+#| lst-label: lst-codalgoritmos
+#| tbl-cap: Dados de 5 tipos de algoritmo oferece o melhor desempenho em termos de precisão de posicionamento, considerando.
+
+# Carregando pacotes
+library(gt)
+
+# Semente
+set.seed(10)
+
+controle <- factor(rep(c("PID", "LQR", "Fuzzy", "Adaptativo", "Redes Neurais"), each = 6))
+
+eqm <- c(
+  rnorm(6, mean = 0.35, sd = 0.05),  # PID
+  rnorm(6, mean = 0.28, sd = 0.04),  # LQR
+  rnorm(6, mean = 0.42, sd = 0.06),  # Fuzzy
+  rnorm(6, mean = 0.31, sd = 0.05),  # Adaptativo
+  rnorm(6, mean = 0.25, sd = 0.03)   # Redes Neurais
+)
+
+# Criar data frame com os dados
+experimento <- data.frame(Algoritmo = controle, EQM = eqm)
+
+
+
+# Criando a tabela gt
+experimento |>
+  gt() |>
+   tab_style(
+    style = list(
+      cell_text(weight = "bold", color = "white"), # Negrito e cor do texto branco
+      cell_fill(color = "#0073e6") # Fundo azul
+    ),
+    locations = cells_column_labels()
+  ) |>
+  tab_style(
+    style = cell_text(align = "center"), # Centraliza o texto
+    locations = cells_body(columns = everything()) # Aplica a todas as colunas do corpo da tabela
+  ) |>
+   data_color(
+    columns = everything(), # Aplica a todas as colunas
+    rows = seq(1, nrow(experimento), 2), # Seleciona as linhas ímpares
+    colors = "#f2f2f2" # Cor de fundo cinza claro
+  ) |>
+  data_color(
+    columns = everything(),
+    rows = seq(2, nrow(experimento), 2), # Seleciona as linhas pares
+    colors = "#e6f7ff" # Cor de fundo azul claro
+  )
+
+```
+
+Pergunta-se:
+
+- Sobre o Planejamento do Experimento
+
+a) Os resultados de EQM podem variar de acordo com o tempo, carga ou ambiente, por exemplo. O que fazer para contornar esse problema no experimento?
+b) Se o teste de cada algoritmo de controle for feito sempre na mesma ordem, o que pode acontecer nos resultados coletados nas unidade amostrais?
+c) Pequenas diferenças podem parecer importantes quando comparamos numericamente os valores médios no EQM dos algoritmos avaliados, mas podemos afirmar que são estatisticamente significativos? A que se deve essas variações.
+d) Qual o tipo de delineamento adequado para o experimento? Justifique.
+e) Como o experimento poderia ser aprimorado?
+
+- Sobre a análise do experimento
+
+f) O fator "tipo de controlador" tem efeito significativo?
+g) Qual(is) controlador(es) apresenta(m) menor EQM médio?
+h) Existem diferenças estatísticas entre os controladores?
+i) O modelo da ANAVA se ajusta bem aos dados?
+j) As diferenças observadas são relevantes na prática (além de significativas)?
+k) Existe variação interna (entre repetições) significativa?
+
+:::
+
+
+::: Solution
+
+a) Para minimizar a influência de fatores externos como **tempo, carga ou ambiente**, que podem introduzir **viés** nos resultados, devem ser adotadas estratégias fundamentais do planejamento experimental:
+
+   - Controle de Condições Experimentais:
+        - Realizar os testes em **ambiente de laboratório controlado** (temperatura, iluminação, vibrações, interferência);
+        - Garantir que a **carga no braço robótico** seja sempre a mesma ou desprezível durante as execuções.
+   - Padronização do Procedimento:
+        - Executar sempre a **mesma trajetória** com **mesma velocidade**, **mesmo número de pontos** e **tempo total**;
+        - Reinicializar o sistema entre execuções, se necessário.
+   - Casualização:
+        - **Aleatorizar a ordem dos algoritmos de controle** a cada repetição;
+        - Isso evita que um algoritmo seja sempre testado, por exemplo, quando a bateria está mais cheia ou o motor mais frio.
+        - Distribui aleatoriamente o efeito de variações sistemáticas ao longo do tempo.
+
+b) Muito problemas podem acontecer no experimento:
+   - Efeito de ordem ou tempo:
+       - Se o sistema se **aquecesse** ou a **bateria se descarregasse** ao longo dos testes, os algoritmos testados por último tenderiam a ter **pior desempenho** (maior EQM), não por serem piores, mas pelas **condições alteradas**;
+   - Associação indevida entre tratamento e tendência externa;
+       - Se o sistema se **aquecesse** ou a **bateria se descarregasse** ao longo dos testes, os algoritmos testados por último tenderiam a ter **pior desempenho** (maior EQM), não por serem piores, mas pelas **condições alteradas**;
+   - Associação indevida entre tratamento e tendência externa;
+       - A **posição na sequência dos testes** pode se confundir com o **efeito do algoritmo**, distorcendo os resultados;
+       - Ex: O "melhor algoritmo" pode parecer o primeiro apenas porque foi testado em melhores condições;
+   - Aumento do erro experimental:
+       - A falta de aleatorização pode **inflar a variabilidade residual**, dificultando a detecção de diferenças reais entre algoritmos;
+   - Conclusões inválidas:
+       - A ANOVA pressupõe **independência e aleatoriedade** das unidades amostrais;
+       - Sem aleatorização, a validade estatística da análise fica comprometida: você pode concluir que há diferença entre algoritmos quando na verdade está apenas observando **um efeito de ordem**.
+
+c) Não necessariamente. Diferenças numéricas entre médias não garantem que essas diferenças sejam estatisticamente significativas. A significância depende de três fatores principais:
+    - Variabilidade dos dados (erro experimental):
+        - Se as repetições de cada algoritmo mostram alta variabilidade no EQM, uma pequena diferença entre médias pode ser irrelevante;
+        - Exemplo: médias de 4.2 vs. 4.5 podem parecer diferentes, mas se o desvio padrão for 0.6, elas podem estar dentro da margem de erro;
+    - Número de repetições:
+        - Um número pequeno de repetições reduz o poder do teste estatístico;
+        - Mais repetições permitem estimar melhor a variabilidade e detectar diferenças reais;
+    - Teste estatístico (como ANAVA):
+        - O Teste F determina se a variação entre as médias é maior do que a variação esperada por acaso;
+        - A ANOVA responde:
+            - “As diferenças observadas entre algoritmos são maiores do que seria esperado pela variabilidade natural do experimento?”
+            
+Portanto, essas variações se devem a diversos fatores:
+     - Aleatoriedade natural no experimento (ex: ruído de sensores, microflutuações na trajetória);
+     - Mudanças não controladas no ambiente (temperatura, interferência eletromagnética);
+     - Variações internas do sistema, mesmo sob mesmas condições;
+     - Erro humano ou de medição (dependendo da forma de registro do EQM).
+
+d) *Em construção...*
+
+e) Vejamos como aprimorar o experimento:
+     - Aumentar o número de repetições:
+         - Melhora a **precisão na estimativa das médias**;
+         - Reduz a influência de valores atípicos;
+         - Aumenta o **poder do teste estatístico** para detectar diferenças reais;
+     - Melhorar o controle do ambiente:
+         - Monitorar e registrar **temperatura**, **carga de CPU**, **tensão de alimentação**, etc.;
+         - Isolar o robô de **interferências externas** (vibração, Wi-Fi, ruído elétrico);
+         - Executar os testes em **condições mais uniformes**;
+     - Usar aleatorização ou blocagem mais estruturada:
+         - Além da **aleatorização completa**, pode-se dividir o experimento em **blocos** (ex: por turno, por operador, por horário) e aplicar um **delineamento em blocos casualizados (DBC)** se houver fatores de variação identificados;
+         - Isso aumenta a sensibilidade da análise;
+     - Incluir mais variáveis resposta:
+         - Além do EQM, medir:
+              - Tempo de estabilização;
+              - Sobressinal;
+              - Energia consumida;
+              - Tempo de resposta;
+         - Isso dá uma visão **multivariada e mais completa** do desempenho de cada algoritmo.
+     
+        
+  
+
+
+:::
 
